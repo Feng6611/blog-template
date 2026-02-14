@@ -1,0 +1,16 @@
+{
+  "greeting": "你好！",
+  "navbar.home": "首页",
+  "navbar.crafts": "作品",
+  "navbar.memos": "瞬间",
+  "navbar.openMenu": "打开主菜单",
+  "navbar.closeMenu": "关闭主菜单",
+  "metadata.title": "博客模板",
+  "metadata.description": "一个由 Next.js 驱动的双语 Markdown 博客模板。",
+  "home.title": "博客模板",
+  "home.description": "一个由 Next.js 驱动的双语 Markdown 博客模板。",
+  "language.en": "EN",
+  "language.zh": "中文",
+  "language.switchTo.en": "切换到英文",
+  "language.switchTo.zh": "切换到中文"
+} 

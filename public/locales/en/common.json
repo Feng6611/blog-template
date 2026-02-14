@@ -1,0 +1,17 @@
+{
+  "greeting": "Hello!",
+  "navbar.home": "Home",
+  "navbar.crafts": "Crafts",
+  "navbar.memos": "Memos",
+  "navbar.openMenu": "Open main menu",
+  "navbar.closeMenu": "Close main menu",
+  "metadata.title": "Blog Template",
+  "metadata.description": "A bilingual markdown blog template powered by Next.js.",
+  "home.title": "Blog Template",
+  "home.description": "A bilingual markdown blog template powered by Next.js.",
+  "language.en": "EN",
+  "language.zh": "ZH",
+  "language.switchTo.en": "Switch to English",
+  "language.switchTo.zh": "Switch to Chinese",
+  "post.backToHome": "← Back to home"
+} 
