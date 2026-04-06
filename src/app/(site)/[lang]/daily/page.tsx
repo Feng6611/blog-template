@@ -1,7 +1,7 @@
-import { getDailyPostsData } from "@/lib/posts"
-import { PostList } from "@/components/blog"
-import { getDictionary } from "@/lib/i18n";
-import { type Locale } from "@/lib/i18n.config";
+import { getDailyPostsData } from "@/content/queries/posts"
+import { PostList } from "@/components/content"
+import { getDictionary } from "@/i18n";
+import { type Locale } from "@/i18n/config";
 import { getLocalePath } from '@/lib/utils';
 
 export const revalidate = 300;

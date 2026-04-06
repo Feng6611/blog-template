@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { defaultLocale, type Locale } from './i18n.config'
-import siteConfig from '@site-config'
+import { defaultLocale, type Locale } from '@/i18n/config'
+import siteConfig from '@/config/site'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))

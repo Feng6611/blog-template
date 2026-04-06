@@ -1,11 +1,14 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- `src/app`: Next.js App Router pages, layouts, and styles (`globals.css`).
-- `src/components`: Reusable UI, navigation, icons, and blog components.
-- `src/lib`: Utilities, i18n config, content loaders, and remark plugins.
-- `src/types`: Shared TypeScript types (e.g., content types).
-- `blog`: Markdown content (`home/`, `daily/`, `about.md`).
+- `src/app`: App Router pages, route groups, layouts, and metadata.
+- `src/components`: Layout, navigation, content, and UI components.
+- `src/content`: Content loaders, queries, transforms, and schema helpers.
+- `src/config`: Site configuration.
+- `src/i18n`: Locale config and dictionary loading.
+- `src/lib`: Shared utility functions.
+- `src/types`: Shared TypeScript types.
+- `content`: Markdown content (`posts/`, `daily/`, `pages/about.md`).
 - `public`: Static assets (served at `/`).
 - `scripts`: Build helpers (`generate-postids.ts`, `generate-content-index.ts`).
 - `.cache`: Build-time content index (`content-index.json`, auto-generated).
@@ -35,5 +38,5 @@
 
 ## Security & Configuration Tips
 - Do not commit secrets; use `.env.local`. Set `NEXT_PUBLIC_SITE_URL` for correct canonical/OG URLs.
-- Place images under `public/` and reference `/image/...` (rewrite enabled).
-- i18n: default locale `zh`; routes live under `src/app/[lang]/`.
+- Place images under `public/image/` and icons under `public/icons/`.
+- i18n: default locale `zh`; language routes live under `src/app/(site)/[lang]/`.

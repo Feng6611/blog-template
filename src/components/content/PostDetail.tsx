@@ -1,10 +1,10 @@
 import React from 'react';
-import { PostData } from '@/lib/posts';
+import { PostData } from '@/content/queries/posts';
 import path from 'path';
 import MDXContent from '@/components/ui/MDXContent';
 import Link from 'next/link';
-import { Locale, Dictionary } from '@/lib/i18n.config';
-import { getPostIdMap } from '@/lib/posts';
+import { Locale, Dictionary } from '@/i18n/config';
+import { getPostIdMap } from '@/content/queries/posts';
 import { formatDateByLocale, getLocalePath } from '@/lib/utils';
 
 interface PostDetailProps {

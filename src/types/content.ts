@@ -22,11 +22,10 @@ export interface PostSummary extends Omit<PostMetadata, 'postid' | 'title'> {
 export type IndexEntry = {
   slug: string;
   type: 'post' | 'daily';
-  filePath: string; // relative to blog/
+  filePath: string; // relative to content/
   fileName: string;
   fileNameBase: string;
   title: string | null;
   date: string | null; // YYYY-MM-DD
   tags: string[];
 };
-

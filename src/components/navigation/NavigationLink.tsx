@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { defaultLocale, Locale } from '@/lib/i18n.config';
-import { ExternalLinkIcon } from '@/components/icons';
+import { defaultLocale, Locale } from '@/i18n/config';
+import { ExternalLinkIcon } from '@/components/ui';
 import { getLocalePath } from '@/lib/utils';
 
 interface NavigationLinkProps {

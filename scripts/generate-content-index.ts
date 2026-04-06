@@ -4,14 +4,14 @@ const path = require('path');
 const matter = require('gray-matter');
 const dayjs = require('dayjs');
 
-const BLOG_DIR = path.join(process.cwd(), 'blog');
+const CONTENT_DIR = path.join(process.cwd(), 'content');
 const CACHE_DIR = path.join(process.cwd(), '.cache');
 const INDEX_PATH = path.join(CACHE_DIR, 'content-index.json');
 
 type IndexItem = {
   slug: string;
   type: 'post' | 'daily';
-  filePath: string; // relative to blog/
+  filePath: string; // relative to content/
   fileName: string;
   fileNameBase: string;
   title: string | null;
@@ -46,11 +46,11 @@ function normalizeDate(value: string | number | Date | null | undefined): string
 }
 
 async function buildIndex() {
-  const allFiles = (await walk(BLOG_DIR)).filter(isMarkdown);
+  const allFiles = (await walk(CONTENT_DIR)).filter(isMarkdown);
   const items: IndexItem[] = [];
 
   for (const fullPath of allFiles) {
-    const rel = path.relative(BLOG_DIR, fullPath);
+    const rel = path.relative(CONTENT_DIR, fullPath);
     const dir = path.dirname(rel).replace(/\\/g, '/');
     const fileName = path.basename(fullPath);
     const fileNameBase = fileName.replace(/\.md$/i, '');
@@ -60,15 +60,12 @@ async function buildIndex() {
 
     const slug = data.slug || null;
 
-    // Skip root-level markdown files (e.g., blog/about.md)
     const topLevelDir = dir.split('/').filter(Boolean)[0] || '';
     if (!topLevelDir) {
-      // Root of blog/ — do not index into posts/daily
       continue;
     }
 
-    // Keep index consistent with runtime fallback: only home/ and daily/
-    if (topLevelDir !== 'home' && topLevelDir !== 'daily') {
+    if (topLevelDir !== 'posts' && topLevelDir !== 'daily') {
       continue;
     }
 
@@ -78,7 +75,6 @@ async function buildIndex() {
     const title = data.title ? String(data.title) : null;
 
     if (!slug) {
-      // 跳过没有 slug 的文章（与运行时代码保持一致）
       continue;
     }
 
@@ -103,3 +99,5 @@ buildIndex().catch((err) => {
   console.error('Failed to generate content index:', err);
   process.exit(1);
 });
+
+export {};

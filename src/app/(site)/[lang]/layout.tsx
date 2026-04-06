@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { MainLayout } from "@/components/navigation";
-import { getDictionary } from '@/lib/i18n';
-import { defaultLocale, type Locale } from '@/lib/i18n.config';
+import { MainLayout } from "@/components/layout";
+import { getDictionary } from '@/i18n';
+import { defaultLocale, type Locale } from '@/i18n/config';
 import type { ReactNode } from "react";
 import { getLocaleUrl } from '@/lib/utils';
-import siteConfig from '@site-config';
+import siteConfig from '@/config/site';
 
 export async function generateMetadata(
     { params }: { params: { lang: Locale } }
@@ -19,12 +19,12 @@ export async function generateMetadata(
         icons: {
             icon: [
                 {
-                    url: '/icon-32.png',
+                    url: '/icons/icon-32.png',
                     sizes: '32x32',
                     type: 'image/png'
                 },
                 {
-                    url: '/icon-192.png',
+                    url: '/icons/icon-192.png',
                     sizes: '192x192',
                     type: 'image/png'
                 }

@@ -1,8 +1,8 @@
-import { type Locale } from "@/lib/i18n.config";
-import { PostDetail } from '@/components/blog';
-import { getPostData, getAllDailySlugs } from '@/lib/posts';
+import { type Locale } from "@/i18n/config";
+import { PostDetail } from '@/components/content';
+import { getPostData, getAllDailySlugs } from '@/content/queries/posts';
 import { notFound } from 'next/navigation';
-import { getDictionary } from "@/lib/i18n";
+import { getDictionary } from "@/i18n";
 import { Metadata, ResolvingMetadata } from 'next';
 import { getLocaleUrl } from '@/lib/utils';
 
@@ -38,8 +38,6 @@ export async function generateMetadata(
         };
     }
 
-    // 您需要将下面的 baseUrl 替换为您的实际网站域名
-    // 考虑使用环境变量，例如 process.env.NEXT_PUBLIC_SITE_URL
     const canonicalUrl = getLocaleUrl(params.lang, `daily/${post.slug}`);
 
     return {

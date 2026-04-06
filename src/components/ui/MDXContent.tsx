@@ -1,50 +1,38 @@
 import React from 'react';
 import { MDXRemote, type MDXRemoteProps } from 'next-mdx-remote/rsc';
 import type { Pluggable } from 'unified';
-import { type Locale } from '@/lib/i18n.config';
+import { type Locale } from '@/i18n/config';
 
-// 导入插件
 import remarkGfm from 'remark-gfm';
-import remarkPanguSpacing from '@/lib/mdx-plugins/remark-pangu-spacing.mjs';
-import remarkCustomImagesAndLinks from '@/lib/mdx-plugins/remark-custom-images-and-links.mjs';
-import remarkCustomLineBreaks from '@/lib/mdx-plugins/remark-custom-line-breaks.mjs';
-
-// 导入数据获取函数
-// postIdMap 由调用方注入，避免组件内部全量扫描内容
-
-// 导入自定义组件
-import CenteredImage from './CenteredImage'; // 确认路径正确
+import remarkPanguSpacing from '@/content/transforms/mdx-plugins/remark-pangu-spacing.mjs';
+import remarkCustomImagesAndLinks from '@/content/transforms/mdx-plugins/remark-custom-images-and-links.mjs';
+import remarkCustomLineBreaks from '@/content/transforms/mdx-plugins/remark-custom-line-breaks.mjs';
+import CenteredImage from './CenteredImage';
 
 interface MDXContentProps {
-    content: string; // 原始 Markdown/MDX
-    postIdMap: Record<string, string>; // fileNameBase -> slug
-    lang?: Locale; // 当前语言，用于生成本地化链接
+    content: string;
+    postIdMap: Record<string, string>;
+    lang?: Locale;
 }
 
-// 修改为 async 组件以获取数据
 export default async function MDXContent({ content, postIdMap, lang }: MDXContentProps) {
-
-    // 修正：将插件放回 options.mdxOptions，并明确类型
     const remarkPlugins: Pluggable[] = [
         remarkGfm,
         remarkPanguSpacing,
         [remarkCustomImagesAndLinks, { postIdMap, lang }],
-        // 自定义：将“单个换行”拆分为新的段落 <p>（保留 MDX 其余默认行为）
         remarkCustomLineBreaks,
     ];
-    const rehypePlugins: Pluggable[] = []; // 明确类型
+    const rehypePlugins: Pluggable[] = [];
 
-    const options: MDXRemoteProps['options'] = { // 明确 options 类型
+    const options: MDXRemoteProps['options'] = {
         mdxOptions: {
             remarkPlugins,
             rehypePlugins,
         },
-        // parseFrontmatter: false, // 可以根据需要设置
     };
 
-    const components: MDXRemoteProps['components'] = { // 明确 components 类型
-        CenteredImage: CenteredImage,
-        // ... 其他自定义组件
+    const components: MDXRemoteProps['components'] = {
+        CenteredImage,
     };
 
     return (

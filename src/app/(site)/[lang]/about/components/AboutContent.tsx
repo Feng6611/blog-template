@@ -3,12 +3,12 @@ import { readFile } from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import { MDXContent } from '@/components/ui';
-import { getPostIdMap } from '@/lib/posts';
-import { type Locale } from '@/lib/i18n.config';
+import { getPostIdMap } from '@/content/queries/posts';
+import { type Locale } from '@/i18n/config';
 
 export default async function AboutContent({ lang }: { lang: Locale }) {
     try {
-        const aboutPath = path.join(process.cwd(), 'blog', 'about.md');
+        const aboutPath = path.join(process.cwd(), 'content', 'pages', 'about.md');
         const fileContents = await readFile(aboutPath, 'utf8');
         const { content } = matter(fileContents);
 

@@ -2,13 +2,13 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { Locale, locales } from '@/lib/i18n.config'
-import type { Dictionary } from '@/lib/i18n.config'; // 导入 Dictionary 类型
+import { Locale, locales } from '@/i18n/config'
+import type { Dictionary } from '@/i18n/config';
 import { getLocalePath } from '@/lib/utils';
 
 interface LanguageSwitcherProps {
     currentLocale: Locale;
-    dictionary: Dictionary; // 使用 Dictionary 类型
+    dictionary: Dictionary;
 }
 
 export default function LanguageSwitcher({ currentLocale, dictionary }: LanguageSwitcherProps) {

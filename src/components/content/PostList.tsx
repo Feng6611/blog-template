@@ -2,8 +2,8 @@ import React from 'react';
 import Link from "next/link"
 import path from 'path';
 import { formatDateByLocale } from '@/lib/utils';
-import type { Locale } from '@/lib/i18n.config';
-import type { PostSummary } from '@/lib/posts';
+import type { Locale } from '@/i18n/config';
+import type { PostSummary } from '@/content/queries/posts';
 
 interface PostListProps {
     posts: PostSummary[];

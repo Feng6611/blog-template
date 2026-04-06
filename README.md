@@ -5,7 +5,7 @@ Reusable bilingual (zh/en) Next.js markdown blog template.
 ## Overview
 
 - Next.js App Router blog with `zh` as default locale and `en` as secondary locale
-- Markdown content under `blog/`
+- Markdown content under `content/`
 - Route UI under `src/app/` and reusable components under `src/components/`
 - Build helpers under `scripts/`
 - Generic template defaults only; add your own content, metadata, and images
@@ -14,28 +14,30 @@ Reusable bilingual (zh/en) Next.js markdown blog template.
 
 ```text
 src/app/         routes, layouts, metadata
-src/components/  navigation, content, ui
-src/lib/         content loading, i18n helpers, remark plugins
+src/components/  layout, navigation, content, ui
+src/content/     loaders, queries, transforms, schemas
+src/config/      site config
+src/i18n/        locale config and loaders
+src/lib/         shared utilities
 src/types/       shared types
-blog/            markdown content
+content/         markdown content
 public/          icons, locales, user-supplied images
 scripts/         content validation and index generation
-site.config.ts   site metadata
 AGENTS.md        repo instructions for coding agents
 ```
 
 ## Key Behavior
 
-- `/` rewrites to `/zh`
-- `blog/home/*.md` renders long posts
-- `blog/daily/*.md` renders short daily entries
-- `blog/about.md` renders the about page
+- `/` redirects to `/zh`
+- `content/posts/*.md` renders long posts
+- `content/daily/*.md` renders short daily entries
+- `content/pages/about.md` renders the about page
 - `npm run build` validates frontmatter and regenerates the content index before Next.js build
 
 ## Editing Guide
 
-- Update site metadata in `site.config.ts`
-- Put your markdown content in `blog/`
+- Update site metadata in `src/config/site.ts`
+- Put your markdown content in `content/`
 - Put your own images in `public/image/`
 - Update locale strings in `public/locales/`
 
@@ -49,7 +51,7 @@ description: Welcome post
 
 ## Configure site metadata
 
-Edit `site.config.ts`:
+Edit `src/config/site.ts`:
 
 ```ts
 const siteConfig = {
@@ -76,6 +78,7 @@ npm run build
 - Read `AGENTS.md` before making non-trivial changes
 - Prefer minimal scoped edits over wide refactors
 - Keep the template generic; do not add personal data or local-only files
+- For content work, check `content/` before changing route code
 
 ## Syncing template updates into a content repo
 

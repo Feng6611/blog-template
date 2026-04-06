@@ -6,7 +6,7 @@ const customParseFormat = require('dayjs/plugin/customParseFormat')
 
 dayjs.extend(customParseFormat)
 
-const postsDirectory = path.join(process.cwd(), 'blog')
+const postsDirectory = path.join(process.cwd(), 'content')
 const mode = process.argv.includes('--fix') ? 'fix' : 'check'
 
 function getAllMarkdownFiles(dir: string): string[] {
@@ -102,3 +102,5 @@ function main() {
 }
 
 main()
+
+export {}

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Locale, type Dictionary } from '@/lib/i18n.config';
-import Navigation from './Navigation';
+import { Locale, type Dictionary } from '@/i18n/config';
+import Navigation from '@/components/navigation/Navigation';
 
 interface MainLayoutProps {
     children: React.ReactNode;

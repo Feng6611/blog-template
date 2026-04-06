@@ -2,8 +2,8 @@
 
 import { usePathname } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
-import { Locale, type Dictionary } from '@/lib/i18n.config';
-import { MenuIcon, CloseIcon } from '@/components/icons';
+import { Locale, type Dictionary } from '@/i18n/config';
+import { MenuIcon, CloseIcon } from '@/components/ui';
 import NavigationLink from './NavigationLink';
 import { getLocalePath } from '@/lib/utils';
 
