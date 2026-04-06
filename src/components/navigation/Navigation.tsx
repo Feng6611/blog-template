@@ -17,9 +17,9 @@ export default function Navigation({ dictionary, lang }: NavigationProps) {
     const pathname = usePathname(); // 获取的是完整路径，包括 locale, e.g. /en/about
 
     const navLinks = [
-        { href: getLocalePath(lang), label: "Home", id: 'home' },
-        { href: getLocalePath(lang, 'daily'), label: "Daily", id: 'daily' },
-        { href: getLocalePath(lang, 'about'), label: "About", id: 'about' }
+        { href: getLocalePath(lang), label: dictionary['navbar.home'] || "Home", id: 'home' },
+        { href: getLocalePath(lang, 'daily'), label: dictionary['navbar.daily'] || "Daily", id: 'daily' },
+        { href: getLocalePath(lang, 'about'), label: dictionary['navbar.about'] || "About", id: 'about' }
     ];
 
     useEffect(() => {

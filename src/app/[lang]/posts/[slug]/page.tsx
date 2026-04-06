@@ -2,7 +2,7 @@ import { PostDetail } from '@/components/blog';
 import { getAllPostSlugs, getPostData } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import { getDictionary } from "@/lib/i18n"; // 导入
-import { defaultLocale, type Locale } from "@/lib/i18n.config"; // 导入
+import { type Locale } from "@/lib/i18n.config"; // 导入
 import { Metadata, ResolvingMetadata } from 'next';
 import { getLocaleUrl } from '@/lib/utils';
 
@@ -45,7 +45,7 @@ export async function generateMetadata(
 
     // 您需要将下面的 baseUrl 替换为您的实际网站域名
     // 考虑使用环境变量，例如 process.env.NEXT_PUBLIC_SITE_URL
-    const canonicalUrl = getLocaleUrl(defaultLocale, `posts/${post.slug}`);
+    const canonicalUrl = getLocaleUrl(params.lang, `posts/${post.slug}`);
 
     return {
         title: post.title,
@@ -69,12 +69,12 @@ export async function generateMetadata(
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-    const dictionary = await getDictionary(defaultLocale);
+    const dictionary = await getDictionary(params.lang);
     const postData = await getPostData(params.slug);
 
     if (!postData) {
         notFound();
     }
     // PostDetail 可能也需要 lang 和 dictionary
-    return <PostDetail post={postData} lang={defaultLocale} dictionary={dictionary} />;
+    return <PostDetail post={postData} lang={params.lang} dictionary={dictionary} />;
 } 

@@ -7,7 +7,7 @@
 - `src/types`: Shared TypeScript types (e.g., content types).
 - `blog`: Markdown content (`home/`, `daily/`, `about.md`).
 - `public`: Static assets (served at `/`).
-- `.scripts`: Build helpers (`generate-postids.ts`, `generate-content-index.ts`).
+- `scripts`: Build helpers (`generate-postids.ts`, `generate-content-index.ts`).
 - `.cache`: Build-time content index (`content-index.json`, auto-generated).
 
 ## Build, Test, and Development Commands

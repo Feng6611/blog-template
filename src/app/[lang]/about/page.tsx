@@ -7,8 +7,8 @@ export const revalidate = 300;
 export default async function AboutPage({ params }: { params: { lang: Locale } }) { // Renamed to AboutPage
     const dictionary = await getDictionary(params.lang);
 
-    const pageTitle = dictionary['about.title'] || "关于我"; // Example key
-    const pageDescription = dictionary['about.description'] || "一些关于我的信息"; // Example key
+    const pageTitle = dictionary['about.title'] || "About";
+    const pageDescription = dictionary['about.description'] || "Information about this site or its author.";
 
     return (
         <div className="main-container py-24">

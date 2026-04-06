@@ -11,4 +11,4 @@ keywords:
 
 你可以使用 `[[2026-02-14]]` 这种 Wiki 风格链接指向已存在内容，也可以保留 `[[missing-note]]` 作为未解析链接。
 
-如需插图，可使用：`![[example-image.png|680]]`
+如需插图，请先把你自己的图片放到 `public/image/`，再使用：`![[your-image.png|680]]`

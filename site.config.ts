@@ -5,7 +5,7 @@ export type SiteConfig = {
 };
 
 const siteConfig: SiteConfig = {
-  domain: 'https://kkuk.dev',
+  domain: 'https://example.com',
   title: 'Blog Template',
   description: 'A bilingual markdown blog template powered by Next.js.',
 };
